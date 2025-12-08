@@ -1,0 +1,8 @@
+{
+  "name": "Ahnah Twist",
+  "description": "A progressive web app for fashion designing, AI-powered body measurement analysis, and a digital showroom marketplace.",
+  "requestFramePermissions": [
+    "camera",
+    "microphone"
+  ]
+}
