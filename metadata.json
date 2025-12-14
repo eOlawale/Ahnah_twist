@@ -1,6 +1,12 @@
 {
-  "name": "Ahnah Twist",
+  "name": "Ahnah_twistz",
+  "short_name": "Ahnah_twistz",
   "description": "A progressive web app for fashion designing, AI-powered body measurement analysis, and a digital showroom marketplace.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#121212",
+  "theme_color": "#D4AF37",
+  "icons": [],
   "requestFramePermissions": [
     "camera",
     "microphone"

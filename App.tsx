@@ -5,11 +5,30 @@ import DesignStudio from './components/DesignStudio';
 import Marketplace from './components/Marketplace';
 import TrainingHub from './components/TrainingHub';
 import SocialHub from './components/SocialHub';
+import Auth from './components/Auth';
+import LandingPage from './components/LandingPage';
+import FitAgent from './components/FitAgent';
 import { ViewState } from './types';
 import { Sparkles, Scissors, ShoppingBag, ArrowRight, Users } from 'lucide-react';
 
 const App: React.FC = () => {
+  const [appState, setAppState] = useState<'LANDING' | 'AUTH' | 'APP'>('LANDING');
+  const [user, setUser] = useState<any>(null);
   const [currentView, setCurrentView] = useState<ViewState>(ViewState.HOME);
+
+  // Handle successful login
+  const handleLogin = (userData: any) => {
+    setUser(userData);
+    setAppState('APP');
+  };
+
+  if (appState === 'LANDING') {
+    return <LandingPage onEnter={() => setAppState('AUTH')} />;
+  }
+
+  if (appState === 'AUTH') {
+    return <Auth onLogin={handleLogin} />;
+  }
 
   const renderView = () => {
     switch (currentView) {
@@ -38,6 +57,9 @@ const App: React.FC = () => {
           {renderView()}
         </div>
       </main>
+
+      {/* Global Fit Support Agent */}
+      <FitAgent />
     </div>
   );
 };
@@ -54,7 +76,7 @@ const HomeView: React.FC<{ setView: (view: ViewState) => void }> = ({ setView })
         
         <div className="relative z-10 p-8 md:p-16 max-w-2xl space-y-6">
           <div className="inline-block px-3 py-1 bg-gold/20 text-gold border border-gold rounded-full text-xs font-bold tracking-widest uppercase">
-            Ahnah Twist
+            Ahnah_twistz
           </div>
           <h1 className="text-5xl md:text-7xl font-serif font-bold text-white leading-tight">
             Couture. <br/>

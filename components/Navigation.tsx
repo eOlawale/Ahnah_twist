@@ -1,11 +1,18 @@
 import React from 'react';
 import { ViewState } from '../types';
-import { Home, Ruler, PenTool, ShoppingBag, BookOpen, Menu, X, Users, Instagram, Twitter, Facebook } from 'lucide-react';
+import { Home, Ruler, PenTool, ShoppingBag, BookOpen, Menu, X, Users, Instagram, Twitter, Facebook, Youtube } from 'lucide-react';
 
 interface NavigationProps {
   currentView: ViewState;
   setView: (view: ViewState) => void;
 }
+
+// Custom TikTok Icon
+const TiktokIcon = ({ size = 20 }: { size?: number }) => (
+  <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+    <path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5" />
+  </svg>
+);
 
 const Navigation: React.FC<NavigationProps> = ({ currentView, setView }) => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = React.useState(false);
@@ -29,7 +36,7 @@ const Navigation: React.FC<NavigationProps> = ({ currentView, setView }) => {
       {/* Desktop Sidebar */}
       <nav className="hidden md:flex flex-col w-64 h-screen bg-dark-surface border-r border-gray-800 fixed left-0 top-0 z-50">
         <div className="p-6">
-          <h1 className="text-2xl font-serif font-bold text-gold">Ahnah Twist</h1>
+          <h1 className="text-2xl font-serif font-bold text-gold">Ahnah_twistz</h1>
           <p className="text-[10px] text-gray-400 mt-1 uppercase tracking-widest leading-tight">Couture, Design & Marketplace</p>
         </div>
         <div className="flex-1 flex flex-col gap-2 px-4 overflow-y-auto no-scrollbar">
@@ -52,13 +59,15 @@ const Navigation: React.FC<NavigationProps> = ({ currentView, setView }) => {
         {/* Social Media Footer */}
         <div className="p-6 border-t border-gray-800">
           <p className="text-xs font-semibold text-gray-500 mb-4 uppercase tracking-wider">Follow Us</p>
-          <div className="flex gap-4 mb-4">
+          <div className="flex gap-3 mb-4 flex-wrap">
              <a href="#" className="text-gray-400 hover:text-gold transition-colors"><Instagram size={20} /></a>
              <a href="#" className="text-gray-400 hover:text-gold transition-colors"><Twitter size={20} /></a>
              <a href="#" className="text-gray-400 hover:text-gold transition-colors"><Facebook size={20} /></a>
+             <a href="#" className="text-gray-400 hover:text-gold transition-colors"><Youtube size={20} /></a>
+             <a href="#" className="text-gray-400 hover:text-gold transition-colors"><TiktokIcon size={20} /></a>
           </div>
           <div className="text-xs text-gray-600">
-            © 2025 Ahnah Twist
+            © 2025 Ahnah_twistz
           </div>
         </div>
       </nav>
@@ -66,7 +75,7 @@ const Navigation: React.FC<NavigationProps> = ({ currentView, setView }) => {
       {/* Mobile Header & Bottom Nav */}
       <div className="md:hidden fixed top-0 w-full bg-dark-surface z-50 border-b border-gray-800 px-4 py-3 flex justify-between items-center">
         <div>
-            <h1 className="text-xl font-serif font-bold text-gold">Ahnah Twist</h1>
+            <h1 className="text-xl font-serif font-bold text-gold">Ahnah_twistz</h1>
             <p className="text-[9px] text-gray-400 uppercase tracking-widest">Couture & Marketplace</p>
         </div>
         <button onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)} className="text-white">
@@ -95,10 +104,12 @@ const Navigation: React.FC<NavigationProps> = ({ currentView, setView }) => {
             
             <div className="mt-8 border-t border-gray-800 pt-8">
                <h4 className="text-gold font-bold mb-4">Join the Conversation</h4>
-               <div className="flex gap-6 justify-center">
+               <div className="flex gap-6 justify-center flex-wrap">
                   <a href="#" className="p-3 bg-gray-800 rounded-full text-white hover:bg-gold hover:text-dark"><Instagram /></a>
                   <a href="#" className="p-3 bg-gray-800 rounded-full text-white hover:bg-gold hover:text-dark"><Twitter /></a>
                   <a href="#" className="p-3 bg-gray-800 rounded-full text-white hover:bg-gold hover:text-dark"><Facebook /></a>
+                  <a href="#" className="p-3 bg-gray-800 rounded-full text-white hover:bg-gold hover:text-dark"><Youtube /></a>
+                  <a href="#" className="p-3 bg-gray-800 rounded-full text-white hover:bg-gold hover:text-dark flex items-center justify-center w-12 h-12"><TiktokIcon size={24} /></a>
                </div>
             </div>
            </div>

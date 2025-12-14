@@ -1,6 +1,13 @@
 import React, { useState } from 'react';
-import { Heart, MessageCircle, Share2, Instagram, Twitter, TrendingUp } from 'lucide-react';
+import { Heart, MessageCircle, Share2, Instagram, Twitter, TrendingUp, Youtube } from 'lucide-react';
 import { SocialPost } from '../types';
+
+// Custom TikTok Icon
+const TiktokIcon = ({ size = 20, className = "" }: { size?: number, className?: string }) => (
+  <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}>
+    <path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5" />
+  </svg>
+);
 
 const MOCK_POSTS: SocialPost[] = [
     {
@@ -117,11 +124,19 @@ const SocialHub: React.FC = () => {
                         <div className="space-y-3">
                             <button className="w-full flex items-center gap-3 p-3 bg-gray-800 rounded-xl hover:bg-pink-600 transition-colors group">
                                 <Instagram className="text-pink-400 group-hover:text-white" />
-                                <span className="font-medium">Connect Instagram</span>
+                                <span className="font-medium">Instagram</span>
                             </button>
                              <button className="w-full flex items-center gap-3 p-3 bg-gray-800 rounded-xl hover:bg-blue-500 transition-colors group">
                                 <Twitter className="text-blue-400 group-hover:text-white" />
-                                <span className="font-medium">Connect Twitter</span>
+                                <span className="font-medium">Twitter</span>
+                            </button>
+                            <button className="w-full flex items-center gap-3 p-3 bg-gray-800 rounded-xl hover:bg-red-600 transition-colors group">
+                                <Youtube className="text-red-500 group-hover:text-white" />
+                                <span className="font-medium">YouTube</span>
+                            </button>
+                            <button className="w-full flex items-center gap-3 p-3 bg-gray-800 rounded-xl hover:bg-gray-700 transition-colors group">
+                                <TiktokIcon size={24} className="text-white" />
+                                <span className="font-medium">TikTok</span>
                             </button>
                         </div>
                     </div>

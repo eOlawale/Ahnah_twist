@@ -68,6 +68,22 @@ export const getFashionAdvice = async (query: string): Promise<string> => {
   }
 };
 
+export const getFitSupport = async (query: string): Promise<string> => {
+  try {
+    const response: GenerateContentResponse = await ai.models.generateContent({
+      model: 'gemini-2.5-flash',
+      contents: `You are 'Ahnah', an expert fit specialist and digital tailor for the Ahnah_twistz platform. 
+      Your goal is to help users take accurate measurements, understand fit issues, and select the right size.
+      Be concise, professional, and helpful. 
+      User Query: ${query}`
+    });
+    return response.text || "I can help with fitting questions.";
+  } catch (error) {
+    console.error("Error getting fit support:", error);
+    throw error;
+  }
+};
+
 export const generateSocialCaption = async (description: string): Promise<string> => {
   try {
     const response: GenerateContentResponse = await ai.models.generateContent({

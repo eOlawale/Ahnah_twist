@@ -7,6 +7,12 @@ export enum ViewState {
   SOCIAL = 'SOCIAL'
 }
 
+export interface ProductHistory {
+  date: string;
+  action: string;
+  details: string;
+}
+
 export interface Product {
   id: string;
   name: string;
@@ -15,6 +21,8 @@ export interface Product {
   category: string;
   description: string;
   vendorId?: string;
+  history?: ProductHistory[];
+  stockStatus?: 'IN_STOCK' | 'SOLD_OUT';
 }
 
 export interface MeasurementProfile {
@@ -42,4 +50,14 @@ export interface SocialPost {
   likes: number;
   comments: number;
   isLiked?: boolean;
+}
+
+export type UserRole = 'ADMIN' | 'VENDOR' | 'USER';
+
+export interface User {
+  id: string;
+  name: string;
+  email: string;
+  role: UserRole;
+  avatar?: string;
 }
