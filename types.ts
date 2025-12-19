@@ -4,7 +4,9 @@ export enum ViewState {
   DESIGN_STUDIO = 'DESIGN_STUDIO',
   MARKETPLACE = 'MARKETPLACE',
   TRAINING = 'TRAINING',
-  SOCIAL = 'SOCIAL'
+  SOCIAL = 'SOCIAL',
+  ADMIN_PANEL = 'ADMIN_PANEL',
+  FABRIC_GUIDE = 'FABRIC_GUIDE'
 }
 
 export interface ProductHistory {
@@ -52,7 +54,7 @@ export interface SocialPost {
   isLiked?: boolean;
 }
 
-export type UserRole = 'ADMIN' | 'VENDOR' | 'USER';
+export type UserRole = 'ADMIN' | 'VENDOR' | 'USER' | 'SUPER_ADMIN' | 'GUEST';
 
 export interface User {
   id: string;
@@ -60,4 +62,10 @@ export interface User {
   email: string;
   role: UserRole;
   avatar?: string;
+}
+
+export interface SiteConfig {
+  heroImage: string;
+  heroAspectRatio: string;
+  galleryImages: { url: string; ratio: string }[];
 }
